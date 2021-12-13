@@ -19,6 +19,9 @@ const App: React.VFC = () => {
   // この状態ではlabelのみの管理
   const [newTaskLabel, setNewTaskLabel] = useState<string>("");
 
+  // 追加前のカテゴリを登録する
+  const [newTaskCategory, setNewTaskCategory] = useState<string>("");
+
   // ページマウント時にモックAPIからデータを取得
   useEffect(() => {
     request.fetchTasks((payload: Task[]) => setTasks(payload));
@@ -34,7 +37,16 @@ const App: React.VFC = () => {
       <TaskList {...{ tasks, setTasks }} />
 
       {/* タスク追加、削除 */}
-      <TaskForm {...{ tasks, setTasks, newTaskLabel, setNewTaskLabel }} />
+      <TaskForm
+        {...{
+          tasks,
+          setTasks,
+          newTaskLabel,
+          setNewTaskLabel,
+          newTaskCategory,
+          setNewTaskCategory,
+        }}
+      />
     </div>
   );
 };
