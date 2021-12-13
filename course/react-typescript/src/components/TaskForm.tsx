@@ -1,6 +1,5 @@
 import React from "react";
 import { Task } from "..";
-import { request } from "../server";
 
 type Props = {
   tasks: Task[];
@@ -37,10 +36,6 @@ export const TaskForm: React.FC<Props> = ({
       category: newTaskCategory,
     };
     setTasks([...tasks, newTask]);
-
-    // post
-    // request.createTask(newTask);
-    // request.fetchTasks((payload: Task[]) => setTasks(payload));
     // 値をクリア
     setNewTaskLabel("");
   };

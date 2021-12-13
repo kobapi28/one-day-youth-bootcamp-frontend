@@ -24,17 +24,33 @@ const App: React.VFC = () => {
 
   // ページマウント時にモックAPIからデータを取得
   useEffect(() => {
-    request.fetchTasks((payload: Task[]) => setTasks(payload));
+    request.fetchTasks((payload: Task[]) => {
+      setTasks(payload);
+      setFilteredTask(tasks);
+    });
   }, []);
+
+  // フィルターされたタスクを格納する
+  const [filteredTasks, setFilteredTask] = useState<Task[]>([]);
+
+  // カテゴリでフィルタ
+  const handleFilterValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilteredTask(tasks.filter((task) => task.category === e.target.value));
+  };
 
   return (
     <div>
       {/* ヘッダー */}
       <h1>Tutorial Works</h1>
       <h2>React Todo List</h2>
+      <input
+        onChange={(e) => handleFilterValue(e)}
+        type="text"
+        placeholder="filter category"
+      />
 
       {/* 一覧表示 */}
-      <TaskList {...{ tasks, setTasks }} />
+      <TaskList {...{ tasks, setTasks, filteredTasks }} />
 
       {/* タスク追加、削除 */}
       <TaskForm
