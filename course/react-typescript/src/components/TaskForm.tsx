@@ -1,6 +1,8 @@
 import React from "react";
 import { Task } from "..";
 
+import { Button, ButtonGroup } from "@chakra-ui/react";
+
 type Props = {
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
@@ -60,8 +62,14 @@ export const TaskForm: React.FC<Props> = ({
         value={newTaskCategory}
         placeholder="Enter the category"
       />
-      <button onClick={handleAddTask}>Add</button>
-      <button onClick={handleClearTasks}>Clear</button>
+      <ButtonGroup variant="outline">
+        <Button colorScheme="blue" onClick={handleAddTask}>
+          Add
+        </Button>
+        <Button colorScheme="red" onClick={handleClearTasks}>
+          Clear
+        </Button>
+      </ButtonGroup>
     </>
   );
 };
