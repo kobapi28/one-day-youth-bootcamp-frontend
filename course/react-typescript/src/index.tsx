@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { TaskList } from "./components/TaskList";
 import { TaskForm } from "./components/TaskForm";
 import { request } from "./server";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Input } from "@chakra-ui/react";
 
 // TODOタスクの型
 export type Task = {
@@ -41,10 +41,7 @@ const App: React.VFC = () => {
 
   return (
     <ChakraProvider>
-      {/* ヘッダー */}
-      <h1>Tutorial Works</h1>
-      <h2>React Todo List</h2>
-      <input
+      <Input
         onChange={(e) => handleFilterValue(e)}
         type="text"
         placeholder="filter category"

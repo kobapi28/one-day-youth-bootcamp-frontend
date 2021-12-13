@@ -1,7 +1,7 @@
 import React from "react";
 import { Task } from "..";
 
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button, ButtonGroup, Input } from "@chakra-ui/react";
 
 type Props = {
   tasks: Task[];
@@ -50,13 +50,13 @@ export const TaskForm: React.FC<Props> = ({
 
   return (
     <>
-      <input
+      <Input
         onChange={handleNewTaskLabel}
         type="text"
         value={newTaskLabel}
         placeholder="Enter the task"
       />
-      <input
+      <Input
         onChange={handleNewTaskCategory}
         type="text"
         value={newTaskCategory}

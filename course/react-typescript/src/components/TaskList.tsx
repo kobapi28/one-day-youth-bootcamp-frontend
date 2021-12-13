@@ -1,3 +1,4 @@
+import { Checkbox } from "@chakra-ui/react";
 import React from "react";
 import { Task } from "..";
 
@@ -30,12 +31,12 @@ export const TaskList: React.FC<Props> = ({
       <ul>
         {tasks.map((task, index) => (
           <li key={`todo-${index}`}>
-            {task.isDone ? <s>{task.label}</s> : task.label}
-            <input
+            <Checkbox
+              isChecked={task.isDone}
               onChange={(e) => handleCheckBox(e, index)}
-              type="checkbox"
-              checked={task.isDone}
-            />
+            >
+              {task.isDone ? <s>{task.label}</s> : task.label}
+            </Checkbox>
             {task.category}
           </li>
         ))}
