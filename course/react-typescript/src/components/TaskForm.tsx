@@ -22,7 +22,7 @@ export const TaskForm: React.FC<Props> = ({
 
   // Taskの登録
   const handleAddTask = () => {
-    const newTask = { label: newTaskLabel, isDone: false };
+    const newTask = { label: newTaskLabel, isDone: false, category: "others" };
     setTasks([...tasks, newTask]);
     // 値をクリア
     setNewTaskLabel("");

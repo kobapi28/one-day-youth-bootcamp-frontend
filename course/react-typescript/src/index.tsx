@@ -8,6 +8,7 @@ import { request } from "./server";
 export type Task = {
   label: string;
   isDone: boolean;
+  category: string;
 };
 
 const App: React.VFC = () => {

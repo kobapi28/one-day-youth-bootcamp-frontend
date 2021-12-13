@@ -30,6 +30,7 @@ export const TaskList: React.FC<Props> = ({ tasks, setTasks }) => {
             type="checkbox"
             checked={task.isDone}
           />
+          {task.category}
         </li>
       ))}
     </ul>
